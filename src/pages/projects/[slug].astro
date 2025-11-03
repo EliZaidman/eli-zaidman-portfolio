@@ -1,0 +1,38 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getProjectBySlug } from "../../lib/projects";
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug);
+if (!project) {
+  throw new Error("Project not found");
+}
+const { Content } = project;
+---
+<Base title={`${project.title} — Eli Zaidman`} description={project.summary}>
+  <a href="/projects" class="text-sm underline">← Back to Projects</a>
+  <h1 class="text-3xl font-bold mt-2">{project.title}</h1>
+  <p class="opacity-80">{project.summary}</p>
+
+  {project.links?.video && (
+    <div class="mt-4 aspect-video">
+      <iframe class="w-full h-full rounded-xl" src={project.links.video.replace('watch?v=','embed/')} allow="fullscreen; picture-in-picture"></iframe>
+    </div>
+  )}
+
+  <article class="prose prose-invert max-w-none mt-6">
+    <Content />
+  </article>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    {project.links?.appstore && <a class="btn" href={project.links.appstore} target="_blank">App Store</a>}
+    {project.links?.playstore && <a class="btn" href={project.links.playstore} target="_blank">Google Play</a>}
+    {project.links?.download && <a class="btn" href={project.links.download} target="_blank">Download</a>}
+    {project.links?.repo && <a class="btn" href={project.links.repo} target="_blank">Source</a>}
+  </div>
+
+  <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {project.gallery?.map((img) => (
+      <img src={img} alt="" class="rounded-xl border border-neutral-800" loading="lazy"/>
+    ))}
+  </div>
+</Base>
