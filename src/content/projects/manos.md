@@ -12,7 +12,7 @@ tech: "Unity 3D, URP, Turn-based systems, Team leadership"
 summary: "Dark-fantasy 3D tactical RPG created as a final-year project, developed by a 7-person team."
 cover: "/images/covers/manos.svg"
 links:
-  video: "https://www.youtube.com/watch?v=VIDEO_ID_FOR_MANOS"
+  video: "https://www.youtube.com/watch?v=W4vjWKvNU80&list=PLa0Z4d15z-vk2x8O44NSKjS5qUL1n1j_k&index=2"
   download: ""
 gallery:
   - "/images/covers/manos.svg"
