@@ -11,7 +11,7 @@ tags:
 role: "Unity 3D Developer"
 tech: "Unity C#, Firebase, Enemy AI, UX/UI"
 summary: "Mid-core 3D game that blends third-person shooter combat with tower defense strategy, released in early access on mobile."
-cover: "/images/covers/apestd.svg"
+cover: "/images/ApesTD/CoverPic.webp"
 links:
   appstore: "https://apps.apple.com/il/app/apes-td/id6446364887"
   playstore: "https://play.google.com/store/apps/details?id=com.veryo.apestd"
