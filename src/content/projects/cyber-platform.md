@@ -10,12 +10,12 @@ tags:
 role: "Lead Developer"
 tech: "Unity Character Controller, Physics, Level Design"
 summary: "A first-person platformer focused on precise jump arcs, gravity, and momentum-based movement."
-cover: "/images/covers/cyber-platform.svg"
+cover: "/images/CyberPlatform/CyberPlatformCover.png"
 links:
   video: "https://www.youtube.com/watch?v=NCK-H8glElc"
   download: ""
 gallery:
-  - "/images/CyberPlatform/CyberPlatformCover.png"
+  - "/images/covers/cyber-platform.svg"
 ---
 
 **Cyber Platform** is a first-person **movement platformer** that emphasizes precision, speed, and mastery of the physics.
