@@ -15,7 +15,7 @@ cover: "/images/covers/apestd.svg"
 links:
   appstore: "https://apps.apple.com/il/app/apes-td/id6446364887"
   playstore: "https://play.google.com/store/apps/details?id=com.veryo.apestd"
-  video: "https://www.youtube.com/watch?v=VIDEO_ID_FOR_APESTD"
+  video: "https://youtu.be/Sqji_JXhJuM"
   download: ""
 gallery:
   - "/images/covers/apestd.svg"
