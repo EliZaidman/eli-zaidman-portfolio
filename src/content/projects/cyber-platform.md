@@ -12,10 +12,10 @@ tech: "Unity Character Controller, Physics, Level Design"
 summary: "A first-person platformer focused on precise jump arcs, gravity, and momentum-based movement."
 cover: "/images/covers/cyber-platform.svg"
 links:
-  video: "https://www.youtube.com/watch?v=VIDEO_ID_FOR_CYBER"
+  video: "https://www.youtube.com/watch?v=NCK-H8glElc"
   download: ""
 gallery:
-  - "/images/covers/cyber-platform.svg"
+  - "/images/CyberPlatform/CyberPlatformCover.png"
 ---
 
 **Cyber Platform** is a first-person **movement platformer** that emphasizes precision, speed, and mastery of the physics.
