@@ -18,7 +18,7 @@ if (!project) {
 }
 
 // Helper: build a YouTube embed URL from various possible URL formats
-function getYouTubeEmbed(url: string): string | null {
+function getYouTubeEmbed(url) {
   if (!url) return null;
 
   // watch?v=ID
@@ -39,7 +39,7 @@ function getYouTubeEmbed(url: string): string | null {
 // - Prefer trailer + gameplay if present
 // - Fall back to single "video" field if that's all we have
 const links = project.links ?? {};
-const videoEntriesRaw: { label: string; url: string }[] = [];
+const videoEntriesRaw = [];
 
 if (links.trailer) {
   videoEntriesRaw.push({ label: "Trailer", url: links.trailer });
@@ -109,16 +109,25 @@ const { Content } = project;
         </div>
       )}
 
-      <!-- Screenshot gallery -->
+      <!-- Screenshot gallery with click-to-zoom -->
       {project.gallery && project.gallery.length > 0 && (
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {project.gallery.map((img) => (
-            <img
-              src={img}
-              alt=""
-              class="h-24 w-full rounded-xl border border-white/10 object-cover"
-              loading="lazy"
-            />
+            <button
+              type="button"
+              class="group relative h-32 w-full overflow-hidden rounded-xl border border-white/10"
+              data-lightbox-src={img}
+            >
+              <img
+                src={img}
+                alt=""
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div class="pointer-events-none absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-[11px] text-neutral-100 transition">
+                Click to enlarge
+              </div>
+            </button>
           ))}
         </div>
       )}
@@ -182,4 +191,63 @@ const { Content } = project;
       <Content />
     </article>
   </section>
+
+  <!-- Lightbox overlay -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80"
+  >
+    <button
+      id="lightbox-close"
+      class="absolute right-4 top-4 rounded-full bg-white/10 px-3 py-1 text-xs text-neutral-100 hover:bg-white/20"
+      type="button"
+    >
+      ✕ Close
+    </button>
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-h-[90vh] max-w-[90vw] rounded-xl border border-white/20 object-contain shadow-xl"
+    />
+  </div>
+
+  <script>
+    if (typeof window !== "undefined") {
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbClose = document.getElementById("lightbox-close");
+
+      function showLightbox(src) {
+        if (!lb || !lbImg) return;
+        lbImg.src = src;
+        lb.classList.remove("hidden");
+        lb.classList.add("flex");
+      }
+
+      function hideLightbox() {
+        if (!lb || !lbImg) return;
+        lb.classList.add("hidden");
+        lb.classList.remove("flex");
+        lbImg.src = "";
+      }
+
+      document.querySelectorAll("[data-lightbox-src]").forEach((el) => {
+        el.addEventListener("click", () => {
+          const src = el.getAttribute("data-lightbox-src");
+          if (src) showLightbox(src);
+        });
+      });
+
+      lb?.addEventListener("click", (e) => {
+        if (e.target === lb) hideLightbox();
+      });
+
+      lbClose?.addEventListener("click", hideLightbox);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") hideLightbox();
+      });
+    }
+  </script>
 </Base>
