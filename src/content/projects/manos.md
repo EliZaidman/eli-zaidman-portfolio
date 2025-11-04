@@ -10,7 +10,7 @@ tags:
 role: "Lead Developer & Producer"
 tech: "Unity 3D, URP, Turn-based systems, Team leadership"
 summary: "Dark-fantasy 3D tactical RPG created as a final-year project, developed by a 7-person team."
-cover: "/images/manos/cover.webp"
+cover: "/images/covers/manos.svg"
 links:
   trailer: "https://www.youtube.com/watch?v=fNTRqBbe9Nc"
   gameplay: "https://www.youtube.com/watch?v=agtjqmc3WJc"
