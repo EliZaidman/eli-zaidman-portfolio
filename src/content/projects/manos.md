@@ -16,9 +16,9 @@ links:
   gameplay: "https://www.youtube.com/watch?v=agtjqmc3WJc"
   download: ""  # or link to a build if you have one
 gallery:
-  - "/images/manos/screen-1.webp"
-  - "/images/manos/screen-2.webp"
-  - "/images/manos/screen-3.webp"
+  - "/images/manos/screen-1.png"
+  - "/images/manos/screen-2.png"
+  - "/images/manos/screen-3.png"
 ---
 
 
