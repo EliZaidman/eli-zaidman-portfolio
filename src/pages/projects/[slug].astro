@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import { getAllProjects, getProjectBySlug } from "../../lib/projects";
 
-// This tells Astro which /projects/<slug>/ pages to build
+// Tell Astro which project pages to build
 export function getStaticPaths() {
   const projects = getAllProjects();
   return projects.map((project) => ({
@@ -19,57 +19,101 @@ if (!project) {
 
 const { Content } = project;
 ---
-
 <Base title={`${project.title} — Eli Zaidman`} description={project.summary}>
-  <a href="/projects" class="text-sm underline">← Back to Projects</a>
-  <h1 class="text-3xl font-bold mt-2">{project.title}</h1>
-  <p class="opacity-80">{project.summary}</p>
+  <a href="/projects" class="text-xs text-neutral-300 hover:text-accent underline">
+    ← Back to projects
+  </a>
 
-  {project.links?.video && (
-    <div class="mt-4 aspect-video">
-      <iframe
-        class="w-full h-full rounded-xl"
-        src={project.links.video.replace('watch?v=', 'embed/')}
-        allow="fullscreen; picture-in-picture"
-      ></iframe>
+  <section class="mt-3 grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)] items-start">
+    <!-- Media column -->
+    <div class="space-y-4">
+      <div class="aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/70">
+        {project.links?.video ? (
+          <iframe
+            class="h-full w-full"
+            src={project.links.video.replace("watch?v=", "embed/")}
+            allow="fullscreen; picture-in-picture"
+          ></iframe>
+        ) : (
+          <img
+            src={project.cover}
+            alt={project.title}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        )}
+      </div>
+
+      {project.gallery && project.gallery.length > 0 && (
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {project.gallery.map((img) => (
+            <img
+              src={img}
+              alt=""
+              class="h-24 w-full rounded-xl border border-white/10 object-cover"
+              loading="lazy"
+            />
+          ))}
+        </div>
+      )}
     </div>
-  )}
 
-  <article class="prose prose-invert max-w-none mt-6">
-    <Content />
-  </article>
+    <!-- Info column -->
+    <aside class="card space-y-3">
+      <h1 class="text-xl sm:text-2xl font-semibold">{project.title}</h1>
+      <p class="text-xs text-neutral-300">{project.summary}</p>
 
-  <div class="mt-6 flex flex-wrap gap-3">
-    {project.links?.appstore && (
-      <a class="btn" href={project.links.appstore} target="_blank">
-        App Store
-      </a>
-    )}
-    {project.links?.playstore && (
-      <a class="btn" href={project.links.playstore} target="_blank">
-        Google Play
-      </a>
-    )}
-    {project.links?.download && (
-      <a class="btn" href={project.links.download} target="_blank">
-        Download
-      </a>
-    )}
-    {project.links?.repo && (
-      <a class="btn" href={project.links.repo} target="_blank">
-        Source
-      </a>
-    )}
-  </div>
+      <div class="flex flex-wrap gap-2 text-[11px]">
+        {project.tags?.map((t) => <span class="tag">{t}</span>)}
+      </div>
 
-  <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {project.gallery?.map((img) => (
-      <img
-        src={img}
-        alt=""
-        class="rounded-xl border border-neutral-800"
-        loading="lazy"
-      />
-    ))}
-  </div>
+      <dl class="grid grid-cols-[auto,1fr] gap-x-3 gap-y-1 text-[11px] text-neutral-300">
+        {project.role && (
+          <>
+            <dt class="font-semibold text-neutral-200">Role</dt>
+            <dd>{project.role}</dd>
+          </>
+        )}
+        {project.tech && (
+          <>
+            <dt class="font-semibold text-neutral-200">Tech</dt>
+            <dd>{project.tech}</dd>
+          </>
+        )}
+      </dl>
+
+      <div class="flex flex-wrap gap-2 pt-2">
+        {project.links?.appstore && (
+          <a class="btn btn-sm" href={project.links.appstore} target="_blank">
+            App Store
+          </a>
+        )}
+        {project.links?.playstore && (
+          <a class="btn btn-sm" href={project.links.playstore} target="_blank">
+            Google Play
+          </a>
+        )}
+        {project.links?.download && (
+          <a class="btn btn-sm" href={project.links.download} target="_blank">
+            Download build
+          </a>
+        )}
+        {project.links?.video && (
+          <a
+            class="btn btn-sm bg-white/5 text-neutral-100 hover:bg-white/10"
+            href={project.links.video}
+            target="_blank"
+          >
+            Open on YouTube
+          </a>
+        )}
+      </div>
+    </aside>
+  </section>
+
+  <section class="mt-8">
+    <article class="prose prose-invert max-w-none">
+      <Content />
+    </article>
+  </section>
 </Base>
