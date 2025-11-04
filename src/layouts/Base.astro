@@ -1,5 +1,10 @@
 ---
-const { title = "Eli Zaidman — Unity Game Developer", description = "Portfolio of Unity & C# games and tools by Eli Zaidman." } = Astro.props;
+import "../styles/global.css";
+
+const {
+  title = "Eli Zaidman — Unity Game Developer",
+  description = "Portfolio of Unity & C# games and tools by Eli Zaidman.",
+} = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -8,30 +13,44 @@ const { title = "Eli Zaidman — Unity Game Developer", description = "Portfolio
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif}</style>
-    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <header class="border-b border-neutral-800">
+  <body class="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-950 to-neutral-900 text-neutral-100">
+    <header class="border-b border-white/5 bg-black/30 backdrop-blur">
       <nav class="container flex h-16 items-center justify-between">
-        <a href="/" class="font-extrabold tracking-tight">ELI ZAIDMAN</a>
-        <div class="flex items-center gap-4 text-sm">
-          <a class="hover:opacity-80" href="/projects">Projects</a>
-          <a class="hover:opacity-80" href="/about">About</a>
-          <a class="hover:opacity-80" href="/resume">Resume</a>
-          <a class="btn" href="/contact">Contact</a>
+        <a href="/" class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-xl bg-accent/90 flex items-center justify-center text-xs font-extrabold text-black">
+            EZ
+          </div>
+          <span class="font-semibold tracking-tight text-sm sm:text-base">
+            Eli Zaidman
+          </span>
+        </a>
+        <div class="flex items-center gap-4 text-xs sm:text-sm">
+          <a class="nav-link" href="/projects">Projects</a>
+          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" href="/resume">Resume</a>
+          <a class="btn btn-sm" href="/contact">Contact</a>
         </div>
       </nav>
     </header>
+
     <main class="container py-10">
       <slot />
     </main>
-    <footer class="border-t border-neutral-800 py-10">
-      <div class="container text-sm opacity-70">
-        © {new Date().getFullYear()} Eli Zaidman. Built with Astro + Tailwind.
+
+    <footer class="border-t border-white/5 py-8 text-xs text-neutral-400">
+      <div class="container flex flex-wrap items-center justify-between gap-3">
+        <span>© {new Date().getFullYear()} Eli Zaidman</span>
+        <span class="flex gap-3">
+          <a class="hover:text-accent" href="mailto:ZaidmanEli@gmail.com">Email</a>
+          <a class="hover:text-accent" href="https://www.linkedin.com/in/elizaid/" target="_blank">LinkedIn</a>
+        </span>
       </div>
     </footer>
   </body>
