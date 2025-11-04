@@ -17,6 +17,50 @@ if (!project) {
   throw new Error(`Project not found: ${slug}`);
 }
 
+// Helper: build a YouTube embed URL from various possible URL formats
+function getYouTubeEmbed(url: string): string | null {
+  if (!url) return null;
+
+  // watch?v=ID
+  if (url.includes("watch?v=")) {
+    return url.replace("watch?v=", "embed/");
+  }
+
+  // youtu.be/ID
+  if (url.includes("youtu.be/")) {
+    const id = url.split("youtu.be/")[1].split(/[?&]/)[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+
+  return null;
+}
+
+// Collect up to two videos:
+// - Prefer trailer + gameplay if present
+// - Fall back to single "video" field if that's all we have
+const links = project.links ?? {};
+const videoEntriesRaw: { label: string; url: string }[] = [];
+
+if (links.trailer) {
+  videoEntriesRaw.push({ label: "Trailer", url: links.trailer });
+}
+if (links.gameplay) {
+  videoEntriesRaw.push({ label: "Gameplay", url: links.gameplay });
+}
+if (videoEntriesRaw.length === 0 && links.video) {
+  videoEntriesRaw.push({ label: "Gameplay", url: links.video });
+}
+
+const videos = videoEntriesRaw
+  .map((v) => {
+    const embed = getYouTubeEmbed(v.url);
+    return embed ? { ...v, embedUrl: embed } : null;
+  })
+  .filter(Boolean);
+
+const primaryVideo = videos[0] ?? null;
+const extraVideos = videos.slice(1);
+
 const { Content } = project;
 ---
 <Base title={`${project.title} — Eli Zaidman`} description={project.summary}>
@@ -27,11 +71,13 @@ const { Content } = project;
   <section class="mt-3 grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)] items-start">
     <!-- Media column -->
     <div class="space-y-4">
+      <!-- Primary video or cover -->
       <div class="aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/70">
-        {project.links?.video ? (
+        {primaryVideo ? (
           <iframe
             class="h-full w-full"
-            src={project.links.video.replace("watch?v=", "embed/")}
+            src={primaryVideo.embedUrl}
+            title={primaryVideo.label}
             allow="fullscreen; picture-in-picture"
           ></iframe>
         ) : (
@@ -44,6 +90,26 @@ const { Content } = project;
         )}
       </div>
 
+      <!-- Extra videos (e.g. Manos gameplay) -->
+      {extraVideos.length > 0 && (
+        <div class="grid gap-4 md:grid-cols-2">
+          {extraVideos.map((v) => (
+            <div class="space-y-1">
+              <div class="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black/70">
+                <iframe
+                  class="h-full w-full"
+                  src={v.embedUrl}
+                  title={v.label}
+                  allow="fullscreen; picture-in-picture"
+                ></iframe>
+              </div>
+              <p class="text-[11px] text-neutral-300">{v.label}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <!-- Screenshot gallery -->
       {project.gallery && project.gallery.length > 0 && (
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {project.gallery.map((img) => (
@@ -83,25 +149,25 @@ const { Content } = project;
       </dl>
 
       <div class="flex flex-wrap gap-2 pt-2">
-        {project.links?.appstore && (
-          <a class="btn btn-sm" href={project.links.appstore} target="_blank">
+        {links.appstore && (
+          <a class="btn btn-sm" href={links.appstore} target="_blank">
             App Store
           </a>
         )}
-        {project.links?.playstore && (
-          <a class="btn btn-sm" href={project.links.playstore} target="_blank">
+        {links.playstore && (
+          <a class="btn btn-sm" href={links.playstore} target="_blank">
             Google Play
           </a>
         )}
-        {project.links?.download && (
-          <a class="btn btn-sm" href={project.links.download} target="_blank">
+        {links.download && (
+          <a class="btn btn-sm" href={links.download} target="_blank">
             Download build
           </a>
         )}
-        {project.links?.video && (
+        {links.video && !links.trailer && !links.gameplay && (
           <a
             class="btn btn-sm bg-white/5 text-neutral-100 hover:bg-white/10"
-            href={project.links.video}
+            href={links.video}
             target="_blank"
           >
             Open on YouTube
