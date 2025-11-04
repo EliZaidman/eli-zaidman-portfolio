@@ -10,11 +10,11 @@ tags:
 role: "Lead Developer"
 tech: "Unity C#, Mobile, UI/UX, Analytics, Monetization"
 summary: "Original mobile card-shedding game (Clover Bite × Beach Bum) that passed 1M downloads on iOS and Android."
-cover: "/images/covers/opa.svg"
+cover: "/images/Opa/OpaCover.webp"
 links:
   appstore: "https://apps.apple.com/il/app/opa-family-card-game/id6469609802?l=he"
   playstore: "https://play.google.com/store/apps/details?id=com.bbumgames.opa"
-  video: "https://www.youtube.com/watch?v=VIDEO_ID_FOR_OPA"
+  video: "https://www.youtube.com/watch?v=LBqwWa9Cblk"
   download: ""
 gallery:
   - "/images/covers/opa.svg"
