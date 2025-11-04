@@ -10,13 +10,17 @@ tags:
 role: "Lead Developer & Producer"
 tech: "Unity 3D, URP, Turn-based systems, Team leadership"
 summary: "Dark-fantasy 3D tactical RPG created as a final-year project, developed by a 7-person team."
-cover: "/images/covers/manos.svg"
+cover: "/images/manos/cover.webp"
 links:
-  video: "https://www.youtube.com/watch?v=VIDEO_ID_FOR_MANOS"
-  download: ""
+  trailer: "https://www.youtube.com/watch?v=fNTRqBbe9Nc"
+  gameplay: "https://www.youtube.com/watch?v=agtjqmc3WJc"
+  download: ""  # or link to a build if you have one
 gallery:
-  - "/images/covers/manos.svg"
+  - "/images/manos/screen-1.webp"
+  - "/images/manos/screen-2.webp"
+  - "/images/manos/screen-3.webp"
 ---
+
 
 **Manos: Land of Bal** is a dark-fantasy **tactical RPG** and my final project at Tiltan.
 
