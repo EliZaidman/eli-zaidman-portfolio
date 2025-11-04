@@ -18,7 +18,7 @@ links:
   video: "https://youtu.be/Sqji_JXhJuM"
   download: ""
 gallery:
-  - "/images/covers/apestd.svg"
+  - "/images/covers/ApesTD/CoverPic.webp"
 ---
 
 ApesTDB is a **mid-core 3D hybrid** combining moment-to-moment shooter gameplay with lane-based tower defense.
