@@ -2,6 +2,7 @@
 title: "OPA! — Hybrid Casual Family Card Game"
 date: 2024-10-01
 slug: "opa"
+featured: true
 tags:
   - Unity
   - Mobile
