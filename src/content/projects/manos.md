@@ -2,6 +2,7 @@
 title: "Manos: Land of Bal — 3D Tactical RPG"
 date: 2023-06-01
 slug: "manos"
+featured: true
 tags:
   - Unity
   - TRPG
