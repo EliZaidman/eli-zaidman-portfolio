@@ -1,0 +1,49 @@
+---
+title: "Item Generation System — Procedural Loot Framework"
+date: 2024-05-01
+slug: "item-generation"
+tags:
+  - Unity
+  - Systems
+  - C#
+  - Tools
+role: "Systems Programmer"
+tech: "Unity C#, ScriptableObjects, Probability Tables"
+summary: "Configurable loot-generation framework using rarity weights, conditional rules, and data-driven content definitions."
+cover: "/images/hero-placeholder.svg"
+links:
+  appstore: ""
+  playstore: ""
+  video: ""
+  download: ""
+gallery: []
+---
+
+This Item Generation System is a modular, data-driven framework for **procedural loot** across multiple project types.
+
+## My Role
+
+- Designed and implemented the entire **loot generation pipeline**  
+- Created **ScriptableObject item definitions** with rarity, categories, and filters  
+- Built weighted drop tables with support for level scaling and conditional logic  
+- Exposed a clean API (e.g., `GetDrop(category, level)`) usable by gameplay systems
+
+## Highlights
+
+- Fully data-driven — designers can edit loot without code changes  
+- Supports rarity weighting, category filters, and “no-duplicate” rules  
+- Modular structure makes it reusable across multiple projects
+
+## Challenges & Solutions
+
+- **Content tuning complexity**  
+  Built weighted rarity tables and filtering rules so balancing required no code changes.
+
+- **Different game modes**  
+  Added flexible categories (enemy-type, chest-type, shop) so one system worked everywhere.
+
+## Tech Stack
+
+- Unity (C#)  
+- ScriptableObjects  
+- Weighted tables & filters  
