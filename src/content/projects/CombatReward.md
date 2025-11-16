@@ -10,7 +10,7 @@ tags:
 role: "Gameplay Systems Developer"
 tech: "Unity C#, Event-Driven Architecture, UI Flow"
 summary: "Central system that manages everything that happens after combat ends: rewards, popups, animations, and transitions."
-cover: "/images/hero-placeholder.svg"
+cover: "/images/SystemLogo.png"
 links:
   appstore: ""
   playstore: ""
