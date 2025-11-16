@@ -10,7 +10,7 @@ tags:
 role: "Systems Programmer"
 tech: "Unity C#, Progression Curves, Data-Driven Balancing"
 summary: "Flexible XP and leveling system with curve-based thresholds, rewards, and event-driven level-up notifications."
-cover: "/images/hero-placeholder.svg"
+cover: "/images/SystemLogo.png"
 links:
   appstore: ""
   playstore: ""
