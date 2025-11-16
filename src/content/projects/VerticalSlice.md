@@ -10,15 +10,15 @@ tags:
 role: "Unity Developer"
 tech: "Unity C#, State Machines, 2.5D Gameplay"
 summary: "48-hour jam game built for Global Game Jam 2023, focused on delivering a clean and polished miniature 'vertical slice' of a full game."
-cover: "/images/VerticalSlice/Icon"
+cover: "/images/VerticalSlice/Icon.png"
 links:
   appstore: ""
   playstore: ""
   video: "https://www.youtube.com/watch?v=rW9ht_ZKbBw"
   download: "https://v3.globalgamejam.org/2023/games/vertical-slice-6"
 gallery:
-  - "/images/VerticalSlice/Pic_1"
-  - "/images/VerticalSlice/Pic_2"
+  - "/images/VerticalSlice/Pic_1.png"
+  - "/images/VerticalSlice/Pic_2.png"
 ---
 
 Vertical Slice was created for **Global Game Jam 2023**, with the goal of building a tiny but complete “slice” of a polished experience.
