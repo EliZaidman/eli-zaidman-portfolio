@@ -10,7 +10,7 @@ tags:
 role: "UI Programmer"
 tech: "Unity UI, Event Systems, Reusable Architecture"
 summary: "A modular UI/UX framework that unifies popups, menus, transitions, and feedback across multiple projects."
-cover: "/images/hero-placeholder.svg"
+cover: "/images/SystemLogo.png"
 links:
   appstore: ""
   playstore: ""
