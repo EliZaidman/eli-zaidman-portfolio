@@ -10,7 +10,7 @@ tags:
 role: "Systems Programmer"
 tech: "Unity C#, ScriptableObjects, Probability Tables"
 summary: "Configurable loot-generation framework using rarity weights, conditional rules, and data-driven content definitions."
-cover: "/images/hero-placeholder.svg"
+cover: "/images/SystemLogo.png"
 links:
   appstore: ""
   playstore: ""
