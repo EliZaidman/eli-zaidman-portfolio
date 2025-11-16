@@ -10,13 +10,13 @@ tags:
 role: "Unity Developer"
 tech: "Unity C#, Rapid Prototyping, 2D Gameplay"
 summary: "48-hour jam game created for Global Game Jam 2022, awarded first place globally for concept and execution."
-cover: "/images/hero-placeholder.svg"
+cover: "/images/Valentina/ValentinaBackground.png"
 links:
   appstore: ""
   playstore: ""
-  video: "https://galazul.itch.io/ggj2022-valentina-in-space-site"
+  video: "https://www.youtube.com/watch?v=MxcIfdZsq90"
   download: "https://galazul.itch.io/ggj2022-valentina-in-space-site"
-gallery: []
+gallery: [/images/Valentina/MainMenu.png]
 ---
 
 Valentina in Space was created in **48 hours** during Global Game Jam 2022 and went on to win **first place globally**.
