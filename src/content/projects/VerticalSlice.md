@@ -16,7 +16,9 @@ links:
   playstore: ""
   video: "https://www.youtube.com/watch?v=rW9ht_ZKbBw"
   download: "https://v3.globalgamejam.org/2023/games/vertical-slice-6"
-gallery: [/images/VerticalSlice/Pic_1,/images/VerticalSlice/Pic_2]
+gallery:
+  - "/images/VerticalSlice/Pic_1"
+  - "/images/VerticalSlice/Pic_2"
 ---
 
 Vertical Slice was created for **Global Game Jam 2023**, with the goal of building a tiny but complete “slice” of a polished experience.
