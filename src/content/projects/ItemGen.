@@ -2,6 +2,7 @@
 title: "Item Generation System — Procedural Loot Framework"
 date: 2024-05-01
 slug: "item-generation"
+type: "system"
 tags:
   - Unity
   - Systems
