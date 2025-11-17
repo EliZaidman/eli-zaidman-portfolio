@@ -2,6 +2,7 @@
 title: "UI Framework — Popups & UX Navigation Layer"
 date: 2024-05-01
 slug: "ui-framework"
+type: "system"
 tags:
   - Unity
   - C#
