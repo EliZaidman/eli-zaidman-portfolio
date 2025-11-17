@@ -2,6 +2,7 @@
 title: "Progression & XP System — Leveling Framework"
 date: 2024-05-01
 slug: "progression-xp"
+type: "system"
 tags:
   - Unity
   - C#
