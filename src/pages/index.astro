@@ -1,65 +1,55 @@
 ---
 import Base from "../layouts/Base.astro";
 import { getAllProjects } from "../lib/projects";
-const projects = getAllProjects().filter(p => p.featured);
+
+// 1) Get all projects
+const allProjects = getAllProjects();
+
+// 2) Featured projects only
+const featuredOrder = ["opa", "apestd", "manos"]; // your chosen order
+
+const featuredProjects = allProjects
+  .filter(p => p.featured)
+  .sort((a, b) => featuredOrder.indexOf(a.slug) - featuredOrder.indexOf(b.slug));
 ---
+
 <Base title="Eli Zaidman — Unity Game Developer">
-  <!-- Hero Section -->
-  <section class="grid gap-8 lg:grid-cols-2 items-start">
+  <section class="grid gap-8 lg:grid-cols-2 items-center">
     <div>
       <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-        Unity Game Developer<br />
+        Unity Game Developer<br/>
         <span class="text-accent">C# • Mobile • PC</span>
       </h1>
+
       <p class="mt-4 text-neutral-300 max-w-xl">
-        I build engaging, production-ready games and systems in Unity — from prototype to launch — across iOS, Android, and PC.
+        I build polished, responsive, production-ready gameplay and systems in Unity —
+        blending strong programming fundamentals with UI/UX, gameplay feel, and practical design thinking.
       </p>
 
-      <div class="mt-6 flex flex-wrap gap-3">
+      <div class="mt-6 flex gap-3">
         <a class="btn" href="/projects">View Projects</a>
         <a class="btn" href="/downloads/eli-zaidman-cv.pdf" target="_blank">Download CV</a>
         <a class="btn" href="/contact">Contact</a>
       </div>
     </div>
 
-<!-- Photo + About Me -->
-<div class="flex flex-col gap-4 items-center text-center">
-  <div class="w-full max-w-xs mx-auto">
-    <div class="aspect-[4/5] overflow-hidden rounded-xl border border-white/10 bg-black/60">
-      <img
-        src="/images/ThatsMe.jpg"
-        alt="Eli Zaidman"
-        class="h-full w-full object-cover object-center"
-        loading="lazy"
-      />
+    <div class="card">
+      <img src="images/ThatsMe.jpg" alt="Eli Zaidman" class="rounded-xl w-full"/>
     </div>
-  </div>
-  <p class="text-sm text-neutral-300 max-w-sm leading-relaxed">
-    I’m <strong>Eli Zaidman</strong>, a Unity developer who lives and breathes games. They’ve been part of my world since childhood — I study them, feel them, and constantly seek to understand what makes them magical. For me, game development is not just code; it’s storytelling through interaction, emotion through mechanics, and art expressed in motion. I love building experiences that feel alive — responsive, immersive, and polished — the kind of games that stay with players long after they put the controller down.
-  </p>
-</div>
   </section>
 
-  <!-- Projects Section -->
   <section class="mt-12">
     <h2 class="text-2xl font-bold mb-4">Featured Projects</h2>
+
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((p) => (
-        <a class="card block hover:-translate-y-0.5 transition" href={`/projects/${p.slug}/`}>
-          <div class="aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-black/60 mb-3">
-            <img
-              src={p.cover}
-              alt={p.title}
-              class="h-full w-full object-cover object-center"
-              loading="lazy"
-            />
-          </div>
+      {featuredProjects.map(p => (
+        <a class="card block" href={`/projects/${p.slug}/`}>
+          <img src={p.cover} alt={p.title} class="rounded-xl mb-3 w-full h-44 object-cover" loading="lazy"/>
           <h3 class="text-lg font-semibold">{p.title}</h3>
-          <p class="text-sm opacity-80 line-clamp-3">{p.summary}</p>
+          <p class="text-sm opacity-80">{p.summary}</p>
+
           <div class="mt-3 flex flex-wrap gap-2">
-            {p.tags?.map((t) => (
-              <span class="tag">{t}</span>
-            ))}
+            {p.tags?.map(t => <span class="tag">{t}</span>)}
           </div>
         </a>
       ))}
