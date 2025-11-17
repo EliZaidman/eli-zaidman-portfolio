@@ -2,6 +2,7 @@
 title: "Combat Reward Coordinator — Post-Battle Flow System"
 date: 2024-05-01
 slug: "combat-reward"
+type: "system"
 tags:
   - Unity
   - Systems
