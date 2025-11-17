@@ -1,17 +1,25 @@
 ---
-import Base from "../layouts/Base.astro";
-import { getAllProjects } from "../lib/projects";
+import Base from "../../layouts/Base.astro";
+import { getAllProjects } from "../../lib/projects";
 
-// 1) Get all projects
-const allProjects = getAllProjects();
+// Load all project content
+const all = getAllProjects();
 
-// 2) Featured projects only
-const featuredOrder = ["opa", "apestd", "manos"]; // your chosen order
+// Sorting rules:
+// 1. Non-systems first
+// 2. Systems last
+// 3. Inside each group: sort by date (newest → oldest)
+const projects = all.sort((a, b) => {
+  const aIsSystem = a.type === "system";
+  const bIsSystem = b.type === "system";
 
-const featuredProjects = allProjects
-  .filter(p => p.featured)
-  .sort((a, b) => featuredOrder.indexOf(a.slug) - featuredOrder.indexOf(b.slug));
----
+  // SYSTEMS GO LAST
+  if (aIsSystem && !bIsSystem) return 1;
+  if (!aIsSystem && bIsSystem) return -1;
+
+  // Within each group: newest first
+  return new Date(b.date) - new Date(a.date);
+});
 
 <Base title="Eli Zaidman — Unity Game Developer">
   <section class="grid gap-8 lg:grid-cols-2 items-center">
