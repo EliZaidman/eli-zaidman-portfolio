@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { getAllProjects } from "../lib/projects";
-const projects = getAllProjects().slice(0, 3);
+const projects = getAllProjects().filter(p => p.featured);
 ---
 <Base title="Eli Zaidman — Unity Game Developer">
   <!-- Hero Section -->
