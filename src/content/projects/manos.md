@@ -9,7 +9,7 @@ tags:
   - Team Lead
   - 3D
 role: "Lead Developer & Producer"
-tech: "Unity 3D, URP, Turn-based systems, Team leadership"
+tech: "Unity 3D, URP, Turn-based systems, ScriptableObjects, UI/UX, Team leadership"
 summary: "Dark-fantasy 3D tactical RPG created as a final-year project, developed by a 7-person team."
 cover: "/images/manos/ManosCover.png"
 links:
@@ -23,29 +23,39 @@ gallery:
 ---
 
 **Manos: Land of Bal** is a dark-fantasy **3D tactical RPG**, developed as my final-year capstone project at Tiltan.  
-I served as the **Lead Developer & Producer**, responsible for both the technical direction and the production workflow of a 7-person team.
+I served as the **Lead Developer & Producer**, responsible for both the technical foundation and the production workflow of a 7-person team.
 
 ## My Role
 
 - Led a multidisciplinary team of **7 people** (3 programmers, 4 artists/designers)  
-- Built the core **turn-based combat system**: initiative order, action points, unit states  
-- Implemented **grid selection**, movement validation, tile highlighting, and targeting logic  
-- Developed foundational **enemy AI**: target evaluation, basic behavior patterns, decision flow  
-- Managed production: task breakdown, roadmap, sprints, priorities, and deliverables  
-- Oversaw builds, playtests, stability, and overall development pace
+- Implemented the **turn-based combat system**, initiative order, action points, and turn states  
+- Built **UI/UX** for combat, abilities, unit selection, HUD elements, and interaction feedback  
+- Developed the full **ability system using ScriptableObjects**, supporting data-driven skills  
+- Implemented **ability interaction flow**: clicking abilities, validating targets, highlighting tiles, displaying costs and effects  
+- Created **grid selection & tile logic** for movement, range, and target validation  
+- Developed foundational **enemy AI** and basic combat decision-making  
+- Managed production: roadmap, sprints, priorities, and milestone delivery
 
 ## Systems I Built
 
-- **Turn Manager** — controls combat phases, initiative order, AP use, and turn transitions  
-- **Grid & Tile System** — movement cost, range validation, highlighting, area indicators  
-- **Enemy AI Logic** — simple heuristic-based target selection and action evaluation  
-- **Ability Framework** — defines abilities, damage types, effects, cooldowns, and conditions  
-
-These systems were built with modularity in mind, allowing designers to plug in new skills, enemies, and abilities without changing core logic.
+- **Turn Manager** — manages initiative, action points, character states, and round flow  
+- **Grid & Tile System** — movement cost, tile highlighting, range indicators, targeting rules  
+- **Ability Framework (ScriptableObject-based)**  
+  - Ability data stored in SOs  
+  - Defines damage, range, costs, effects, cooldowns  
+  - Modular, expandable, and designer-friendly  
+- **Ability Interaction UI**  
+  - Clickable abilities  
+  - Shows AP cost, range, and valid tiles  
+  - Smooth highlight/selection feedback  
+- **Enemy AI** — heuristics for target selection and turn decisions
 
 ## Focus Areas
 
-- Ensuring tactical clarity through **readable range indicators**, tile highlights, and smooth feedback  
-- Maintaining clean, scalable **Unity C# architecture** suitable for continued expansion  
-- Coordinating the entire team so art, design, and code evolved in sync  
-- Delivering a complete, polished vertical slice that demonstrated strong fundamentals in **Unity 3D development, system design, and production leadership**
+- Making tactical decisions **clear and readable** with visual cues  
+- Building **modular Unity C# systems** that designers could extend without touching code  
+- Ensuring UI and gameplay logic stayed tightly integrated and consistent  
+- Coordinating the entire team so animation, design, and programming moved together  
+- Delivering a polished, cohesive vertical slice demonstrating strong fundamentals in  
+  **Unity development, system design, UI/UX, and team leadership**
+
