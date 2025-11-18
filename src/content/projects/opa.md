@@ -21,36 +21,54 @@ gallery:
   - "/images/covers/opa.svg"
 ---
 
-OPA! is a fast-paced, hybrid-casual **card-shedding game** designed for mobile.
-I was the **sole Unity developer** in a three-person team (designer, artist, dev), responsible for building the entire playable experience.
+OPA! is a fast-paced, hybrid-casual **card-shedding mobile game**.  
+I was the **sole Unity developer** in a 3-person team, responsible for building every technical aspect of the game—from gameplay logic to UI, data systems, and mobile deployment.
 
 ## My Role
 
-- Implemented the full game loop and rules in **Unity C#**
-- Designed and built **UI/UX**: menus, in-game HUD, tutorial flow, and feedback
-- Integrated **analytics and monetization** tools
-- Owned mobile builds for **iOS and Android**, including store-ready configurations
+- Built the entire **game loop**: turn flow, card interactions, win/loss logic, timers, wild cards, and special rules  
+- Designed and implemented the full **UI/UX**: menus, HUD, animated card feedback, tutorial steps, and accessibility flow  
+- Integrated **analytics**, attribution events, and progression tracking for production visibility  
+- Managed the full **mobile pipeline** (iOS + Android): builds, configs, permissions, SDKs, and store-ready submissions  
+- Collaborated closely with design to tune pacing, behaviour rules, round duration, and feedback timing
+
+## Systems I Built
+
+- **Card & rule framework (C#)**  
+  Modular system that defines card types, effects, interactions, and validation logic
+
+- **Match flow controller**  
+  Handles sequence of turns, rule exceptions, penalties, special actions, and round transitions
+
+- **UI event-driven architecture**  
+  Popup system, reward animations, countdowns, and tutorial triggers  
+  Completely data-driven using ScriptableObjects and event channels
+
+- **Live-Ops Hooks**  
+  Exposed configuration flags (timers, rewards, difficulty curves) that the design team could change without new code
 
 ## Highlights
 
-- Scalable game architecture using **ScriptableObjects** and configuration assets
-- Event-driven UI flow (popups, rewards, timers) that lets design tweak pacing without code changes
-- Hooks for A/B testing and live-ops parameters
+- Built a clean, extensible **ScriptableObject-based architecture** for cards, rules, and pacing  
+- Developed a responsive and polished **card animation system**, including draw/discard, highlights, hover effects, and “snap” behaviour  
+- Implemented **robust state handling** (disconnects, unexpected exits, round resets, error recovery) for real-world mobile conditions  
+- Optimized runtime behaviour and memory usage for **low-end Android devices**, ensuring smooth animations and 60fps gameplay
 
 ## Challenges & Solutions
 
-- **Retention & onboarding**  
-  Used analytics to understand where players dropped off, then iterated on early levels, tutorial timing, and rewards to improve D1/D7 retention.
+- **Complex rule interactions**  
+  Created a layered validation pipeline to keep all exceptions (wild cards, penalties, combo rules) maintainable and readable.
 
-- **Economy balance**  
-  Externalized drop tables, rewards, and difficulty curves into data files so economy changes didn’t require a new build.
+- **UI responsiveness**  
+  Built lightweight UI transitions and cached elements to avoid runtime allocations and reduce layout rebuilds.
 
-- **Performance on older devices**  
-  Optimized allocations, batching, and effects to keep gameplay smooth even on low-end phones.
+- **Mobile build stability**  
+  Consolidated all SDKs (analytics, ads, attribution) under a unified initialization flow to prevent ordering issues and freeze conditions.
 
 ## Tech Stack
 
 - Unity (C#)
-- Mobile (iOS & Android)
-- Analytics & attribution tools
-- Mobile ad/monetization SDKs
+- ScriptableObjects / Data-driven configs
+- iOS & Android production pipelines
+- Analytics + mobile SDK integration
+- Event-based UI architecture
